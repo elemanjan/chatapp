@@ -3,7 +3,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ChatListScreen} from '../screens/ChatListScreen';
 import {ChatScreen} from '../screens/ChatScreen';
 
-const Root = createNativeStackNavigator<any>();
+type MainNavigatorParamList = {
+  ChatListScreen: undefined;
+  ChatScreen: undefined;
+};
+
+const Root = createNativeStackNavigator<MainNavigatorParamList>();
 
 const MainNavigator = () => {
   return (

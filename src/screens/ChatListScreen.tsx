@@ -37,15 +37,15 @@ const data = [
     name: 'Almaz',
   },
 ];
-export const ChatListScreen = ({navigation}) => {
+export const ChatListScreen = ({navigation}: any) => {
   const onSelectItem = () => {
     navigation.navigate('ChatScreen');
   };
-  const renderItem = ({item}) => (
+  const renderItem = ({item}: any) => (
     <ChatListItem item={item} onPress={onSelectItem} />
   );
   return (
-    <SafeAreaView edges={['bottom']} style={{flex: 1, backgroundColor: '#fff'}}>
+    <SafeAreaView edges={['bottom']} style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <FlatList
           data={data}
@@ -58,6 +58,10 @@ export const ChatListScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     paddingTop: 12,
     flex: 1,
