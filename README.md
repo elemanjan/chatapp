@@ -13,9 +13,9 @@ simple chat app in React Native without backend API integration
 ### Prerequisites
 app requirements to run:
 - [Node.js](https://nodejs.org/) v16+
-- [Yarn]('https://yarnpkg.com/')
-- [Android Studio]('https://developer.android.com/studio') (for Android development)
-- [Xcode]('https://developer.apple.com/xcode/') (for iOS development)
+- [Yarn](https://yarnpkg.com/)
+- [Android Studio](https://developer.android.com/studio) (for Android development)
+- [Xcode](https://developer.apple.com/xcode/) (for iOS development)
 
 ## Instructions
 ```sh
