@@ -10,11 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
-    "firebase": "^9.17.2",
     "mobx": "^6.8.0",
     "mobx-react": "^7.6.0",
     "react": "18.2.0",
