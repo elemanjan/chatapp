@@ -2,55 +2,33 @@ import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {ChatListItem} from './components/ChatListItem';
+import {Colors} from '../styles/variables';
+import {AppStackScreenProps} from '../navigators/types';
+import {data} from '../stores/ChatListData';
 
-const data = [
-  {
-    id: 0,
-    name: 'Eleman',
-  },
-  {
-    id: 1,
-    name: 'Nurlan',
-  },
-  {
-    id: 2,
-    name: 'Lama',
-  },
-  {
-    id: 3,
-    name: 'Ron',
-  },
-  {
-    id: 4,
-    name: 'Modric',
-  },
-  {
-    id: 5,
-    name: 'Kama',
-  },
-  {
-    id: 6,
-    name: 'Artur',
-  },
-  {
-    id: 7,
-    name: 'Almaz',
-  },
-];
-export const ChatListScreen = ({navigation}: any) => {
-  const onSelectItem = () => {
-    navigation.navigate('ChatScreen');
+export interface IUser {
+  id: number;
+  name: string;
+  avatarImg: string | null;
+}
+export const ChatListScreen: React.FC<
+  AppStackScreenProps<'ChatListScreen'>
+> = props => {
+  const onSelectItem = (user: IUser) => {
+    props.navigation.navigate('ChatScreen', {user});
   };
-  const renderItem = ({item}: any) => (
-    <ChatListItem item={item} onPress={onSelectItem} />
+
+  const renderItem = (user: IUser) => (
+    <ChatListItem user={user} onPress={() => onSelectItem(user)} />
   );
   return (
     <SafeAreaView edges={['bottom']} style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <FlatList
           data={data}
-          renderItem={renderItem}
+          renderItem={({item}) => renderItem(item)}
           keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={styles.contentContainer}
         />
       </View>
     </SafeAreaView>
@@ -60,11 +38,14 @@ export const ChatListScreen = ({navigation}: any) => {
 const styles = StyleSheet.create({
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
   },
   container: {
     paddingTop: 12,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
+  },
+  contentContainer: {
+    paddingBottom: 100,
   },
 });
