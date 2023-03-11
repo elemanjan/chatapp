@@ -4,6 +4,6 @@ Currently includes:
 
 - React Native
 - React Navigation
-- MobX State Tree
+- MobX
 - TypeScript
 - And more!
