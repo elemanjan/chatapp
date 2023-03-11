@@ -57,6 +57,8 @@ const ChatInput = observer((props: ChatInputProps) => {
       async response => {
         if (response.didCancel) {
           return;
+        } else if (response.errorCode) {
+          Alert.alert('Error', response.errorCode);
         } else {
           try {
             console.log('response', response);
