@@ -61,7 +61,6 @@ const ChatInput = observer((props: ChatInputProps) => {
           Alert.alert('Error', response.errorCode);
         } else {
           try {
-            console.log('response', response);
             const uri = response.assets && response.assets[0].uri;
             const path = Platform.OS === 'android' ? 'file://' + uri : uri;
             chatStore.setVideo(path);
